@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+	<head>
+  		<meta http-equiv="Content-Language" content="en-us">
+  		<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  		<link rel="stylesheet" type="text/css" href="own.css">
+  		<title>Boost.Configurator</title>
+	</head>
+	
+	<body>
+		<table cellpadding="2" width="100%">
+			<tr>
+				<td valign="top"><a href="http://www.boost.org">
+				<img style="border: 0pt none;" alt="Boost C++ Libraries" width="277" height="86" src="boost.png"></a></td>
+				<td align="center"><a href="http://www.boost.org">Home</a></td>
+				<td align="center"><a href="http://www.boost.org/doc/libs/">Libraries</a></td>
+				<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+				<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+				<td align="center"><a href="../../more/index.htm">More</a></td>
+			</tr>
+		</table>
+		
+		<hr/>
+  
+  		<div class="navigation">
+<a href="../index.html"><img src="src/images/prev.png" alt="Prev"></a>&nbsp;<a href="index.html"><img src="src/images/up.png" alt="Up"></a>&nbsp;<a href="index.html"><img src="src/images/home.png" alt="Home"></a>&nbsp;<a href="what_s_new.html"><img src="src/images/next.png" alt="Next"></a>
+</div>
+  
+		<h2>Reference</h2>
+		
+		THIS IS INCOMPLETE REFERENCE!
+		
+		<dl class="index">
+   			<dt><a href="#configurator">class <strong><code>configurator</code></strong></a></dt>
+    		<dt><a href="#single_configurator">class <strong><code>single_configurator</code></strong></a></dt>
+    		<dt><a href="#configurator_settings">class <strong><code>configurator_settings</code></strong></a></dt>
+    		<dt><a href="#option">class <strong><code>option</code></strong></a></dt>
+    		<dt><a href="#conceptual_macro">conceptual macro</a></dt>
+  		</dl>
+		<br/>
+		All parts of library placed in <strong><code>boost::cf</code></strong> namespace.
+		
+		<h3><a name="configurator"></a>class <code>configurator</code></h3>
+		
+		This is core class.
+		<br/>
+		<h4>API functions<h4>
+		
+		<table class="reference_table">
+			<tr align="left">
+				<th width="280"><strong>Name</strong></th>
+				<th width="550"><strong>Description</strong></th>
+			</tr>
+			<tr>
+				<td><a href="reference/configurator.html"><strong><code>configurator</code><strong></a></td>
+				<td>Default constructor</td>
+			</tr>
+			<tr>
+				<td><a href="reference/configurator_add.html"><strong><code>add</code></strong></a> <sup><em>template</em></sup></td>
+				<td>Add option</td>
+			</tr>
+			<tr>
+				<td><a href="reference/configurator_get_value_of.html"><strong><code>get_value_of</code></strong></a> <sup><em>template</em></sup></td>
+				<td>Obtain value of option</td>
+			</tr>
+			<tr>
+				<td><a href="reference/configurator_load.html"><strong><code>load</code></strong></a></td>
+				<td>
+				Load options from configuration file (used filesystem's path)
+				<br/>
+				Load options from <strong><code>std::fstream</code></strong>
+				<br/>
+				Load options from <strong><code>std::stringstream</code></strong>
+				<br/>
+				Load options from container by iterators
+				</td>
+			</tr>
+			<tr>
+				<td><a href="reference/configurator_reload.html"><strong><code>reload</code></strong></a></td>
+				<td>
+				Reload options from configuration file (used filesystem's path)
+				<br/>
+				Reload options from <strong><code>std::fstream</code></strong>
+				<br/>
+				Reload options from <strong><code>std::stringstream</code></strong>
+				<br/>
+				Reload options from container by iterators
+				</td>
+			</tr>
+			<tr>
+				<td><a href="reference/configurator_settings.html"><strong><code>settings</code></strong></a></td>
+				<td>Provides access to the <a href="#configurator_settings"><code>configurator_settings</code></a> class</td>
+			</tr>
+		</table>
+		
+		<br/>
+		
+		<h3><a name="single_configurator">class <code>single_configurator</code></a></h3>
+		
+		This is Singleton-variant of <a href="#configurator"><code>configurator</code></a> class.
+		<br/>
+		<h4>API functions<h4>
+		
+		<table class="reference_table">
+			<tr align="left">
+				<th width="280"><strong>Name</strong></th>
+				<th width="550"><strong>Description</strong></th>
+			</tr>
+			<tr>
+				<td><a href="reference/single_configurator_inst.html"><strong><code>inst</code><strong></a></td>
+				<td>Access to single instance of <a href="#configurator">configurator</a> class</td>
+			</tr>
+		</table>
+		
+		<br/> 
+		
+		<h3><a name="configurator_settings">class <code>configurator_settings</code></a></h3>
+ 
+ 		This is class of Configurator settings.
+		<br/>
+		<h4>API functions<h4>
+
+		<table class="reference_table">
+			<tr align="left">
+				<th width="280"><strong>Name</strong></th>
+				<th width="550"><strong>Description</strong></th>
+			</tr>
+			<tr>
+				<td><a href="reference/configurator_settings_set_case_sensitivity_for_names.html"><strong><code>set_case_sensitivity_for_names</code></strong></a></td>
+				<td>Set case sensitivity for names of sections and options</td>
+			</tr>
+			<tr>
+				<td><a href="reference/configurator_settings_set_name_value_separator.html"><strong><code>set_name_value_separator</code></strong></a></td>
+				<td>Set custom name-value separator for options, instead default <strong><code>'='</code></strong></td>
+			</tr>
+			<tr>
+				<td><a href="reference/configurator_settings_set_one_line_comment_sign.html"><strong><code>set_one_line_comment_sign</code></strong></a></td>
+				<td>Set custom sign for one-line comments, instead default <strong><code>'//'</code></strong></td>
+			</tr>
+			<tr>
+				<td><a href="reference/configurator_settings_set_multi_line_comment_signs.html"><strong><code>set_multi_line_comment_signs</code></strong></a></td>
+				<td>Set custom signs for multi-line comments, instead default <strong><code>'/*'</code></strong> and <strong><code>'*/'</code></strong></td>
+			</tr>
+			<tr>
+				<td><a href="reference/configurator_settings_set_open_section_edging.html"><strong><code>set_open_section_edging</code></strong></a></td>
+				<td>Set custom edging for section opening</td>
+			</tr>
+			<tr>
+				<td><a href="reference/configurator_settings_set_close_section_edging.html"><strong><code>set_close_section_edging</code></strong></a></td>
+				<td>Set custom edging for section closing</td>
+			</tr>
+		</table>
+	
+		<br/> 
+	
+		<h3><a name="option">class <code>option</code></a></h3>
+	
+		This is class of one option. All factual options classes inherit from it.
+		<br/>
+		<h4>API functions<h4>
+	
+		<table class="reference_table">
+			<tr align="left">
+				<th width="280"><strong>Name</strong></th>
+				<th width="550"><strong>Description</strong></th>
+			</tr>
+			<tr>
+				<td><a href="reference/option_set_location.html"><strong><code>set_location</code></strong></a></td>
+				<td>Set location of this option in configuration file</td>
+			</tr>
+			<tr>
+				<td><a href="reference/option_set_default_value.html"><strong><code>set_default_value</code></strong></a></td>
+				<td>Set default value for option</td>
+			</tr>
+			<tr>
+				<td><a href="reference/option_set_necessity.html"><strong><code>set_necessity</code></strong></a></td>
+				<td>Set necessity of option</td>
+			</tr>
+			<tr>
+				<td><a href="reference/option_check_semantic.html"><strong><code>check_semantic</code></strong></a> <sup><em>template</em></sup></td>
+				<td>Set checking of some semantic</td>
+			</tr>
+			<tr>
+				<td><a href="reference/option_allow_multi_values.html"><strong><code>allow_multi_values</code></strong></a></td>
+				<td>Allows existence of multi values for option</td>
+			</tr>
+		</table>
+	
+		<br/> 
+	
+		<h3><a name="conceptual_macro">conceptual macro</a></h3>
+		
+		This is macros for defining conceptual options.
+		<br/><br/>
+		<table class="reference_table">
+			<tr align="left">
+				<th width="280"><strong>Name</strong></th>
+				<th width="550"><strong>Description</strong></th>
+			</tr>
+			<tr>
+				<td><a href="reference/boost_configurator_option.html"><strong><code>BOOST_CONFIGURATOR_OPTION</code></strong></a></td>
+				<td>Define conceptual option</td>
+			</tr>
+		</table>
+		
+		<br/><br/>
+	
+	<div class="last_revised">Last revised 
+  	<!--webbot bot="Timestamp" s-type="EDITED" s-format="%d %B, %Y" startspan -->30
+  	December, 2010<!--webbot bot="Timestamp" endspan i-checksum="38514" --></div>
+	
+	<hr/>
+	
+	<div class="navigation">
+<a href="../index.html"><img src="src/images/prev.png" alt="Prev"></a>&nbsp;<a href="index.html"><img src="src/images/up.png" alt="Up"></a>&nbsp;<a href="index.html"><img src="src/images/home.png" alt="Home"></a>&nbsp;<a href="what_s_new.html"><img src="src/images/next.png" alt="Next"></a>
+</div>
+	</body>
+</html>

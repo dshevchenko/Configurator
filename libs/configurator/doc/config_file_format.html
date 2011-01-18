@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+	<head>
+  		<meta http-equiv="Content-Language" content="en-us">
+  		<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  		<link rel="stylesheet" type="text/css" href="own.css">
+  		<title>Boost.Configurator</title>
+	</head>
+	
+	<body>
+		<table cellpadding="2" width="100%">
+			<tr>
+				<td valign="top"><a href="http://www.boost.org">
+				<img style="border: 0pt none;" alt="Boost C++ Libraries" width="277" height="86" src="boost.png"></a></td>
+				<td align="center"><a href="http://www.boost.org">Home</a></td>
+				<td align="center"><a href="http://www.boost.org/doc/libs/">Libraries</a></td>
+				<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+				<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+				<td align="center"><a href="../../more/index.htm">More</a></td>
+			</tr>
+		</table>
+		
+		<hr/>
+  
+  		<div class="navigation">
+<a href="requirements.html"><img src="src/images/prev.png" alt="Prev"></a>&nbsp;<a href="requirements.html"><img src="src/images/up.png" alt="Up"></a>&nbsp;<a href="index.html"><img src="src/images/home.png" alt="Home"></a>&nbsp;<a href="common_usage.html"><img src="src/images/next.png" alt="Next"></a>
+</div>
+  
+		<h2>Configuration file format</h2>
+		
+		<dl class="index">
+   			<dt><a href="#option">Option</a></dt> 
+			<dt><a href="#section">Section</a></dt> 
+			<dt><a href="#comments">Comments</a></dt>
+  		</dl>
+		
+		<h3><a name="option"></a>Option</h3>
+		
+		In fact, configuration file contains a set of data. Minimal unit of data is <strong>option</strong>. Every option consists of name and value. For example:
+<pre class="config">
+Host = 127.0.0.1
+</pre>
+There is one option, with name <strong>Host</strong> and value <strong>127.0.0.1</strong>.
+<br/><br/>
+Name and value separated by a some separator, default is <strong>=</strong>. You can set custom separator (for details, see <a href="config_file_customizing.html">Configuration file customizing</a>).
+		
+		<br/><br/>
+		<h3><a name="section"></a>Section</h3>
+		
+		Set of options is often corresponds to some conceptual entity, so it useful to combine in the section. For example:
+<pre class="config">
+&lt;Server&gt;
+	Host = 127.0.0.1
+	Port = 80
+&lt;/Server&gt;
+</pre>
+Section <strong>Server</strong> corresponds to some server, and options <strong>Host</strong> and <strong>Port</strong> regarded not as an independent options, but as parts of conceptual entity "Server".
+<br/><br/>
+Of course, you can use arbitrary nesting sections:
+<pre class="config">
+&lt;Server&gt;
+	Host = 127.0.0.1
+	Port = 80
+	
+	&lt;Security&gt;
+		Admin login	= admin
+		Password 	= verystrongpassword
+	&lt;/Security&gt;
+	
+	&lt;Reserve&gt;
+		&lt;System&gt;
+			Log 	= /var/log/system
+		&lt;/System&gt;
+	&lt;/Reserve&gt;
+	
+	&lt;Plugins&gt;
+		extended_plugin = sync check browser
+	&lt;/Plugins&gt;
+&lt;/Server&gt;
+</pre>
+As you see, section's name enclosed in XML-like angle brackets (<strong>&lt;</strong>---<strong>&gt;</strong> for section opening, <strong>&lt;/</strong>---<strong>&gt;</strong> for section closing). This is default format, but you can set custom format (for details, see <a href="config_file_customizing.html">Configuration file customizing</a>).
+<br/><br/>
+The careful reader may notice that option's name (for example, <strong>Admin login</strong>) and option's value (for example, <strong>sync check browser</strong>) can contains spaces, except when space/tab using as separator (for details, see <a href="config_file_customizing.html">Configuration file customizing</a>).
+		<br/><br/>
+		<h3><a name="comments"></a>Comments</h3>
+		
+		Comments are very useful almost in any configuration file. You can use one-line or multi-line comments.
+		<br/><br/>
+		By default, using comments in C++-style:
+<pre class="config">
+// 
+// Common info about this config
+// 
+&lt;Server&gt;  // Server section
+	Host = 127.0.0.1
+	Port = 80
+	
+	/*
+	 * Security is very important!
+ 	 */
+	
+	&lt;Security&gt;
+		Admin lo/*sometextsometext
+sometextsometextsometextsometextsometextsometextsometext
+sometextsometextsomet*/gin	= admin
+		Password 	= verystrongpassword
+	&lt;/Security&gt;
+&lt;/Server&gt;
+</pre>
+But you can change signs for one-line comments and for multi-line comments (for details, see <a href="config_file_customizing.html">Configuration file customizing</a>).
+	<br/><br/>
+	<div class="last_revised">Last revised 
+  	<!--webbot bot="Timestamp" s-type="EDITED" s-format="%d %B, %Y" startspan -->30
+  	December, 2010<!--webbot bot="Timestamp" endspan i-checksum="38514" --></div>
+	
+	<hr/>
+	
+	<div class="navigation">
+<a href="requirements.html"><img src="src/images/prev.png" alt="Prev"></a>&nbsp;<a href="requirements.html"><img src="src/images/up.png" alt="Up"></a>&nbsp;<a href="index.html"><img src="src/images/home.png" alt="Home"></a>&nbsp;<a href="common_usage.html"><img src="src/images/next.png" alt="Next"></a>
+</div>
+	</body>
+</html>

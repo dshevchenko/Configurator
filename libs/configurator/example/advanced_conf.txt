@@ -1,0 +1,34 @@
+/*
+ * advanced_conf.txt
+ */
+
+DbName      : my_database
+DbHost      : localhost
+DbPort      : 100
+DbUser      : some_user
+DbPassword  : some_password
+
+<Server>
+    Host            : 12.45.46.15                   // IP semantics will be check.
+    Port            : 1080                          // Value must be integer number.
+    Admin/*this is comment with unnecessary info
+    asdfasdfasdfasdfasdfasdffasdffasdfasdfasdasd
+    asf*/istrator   : admin@example.com             // e-mail semantics will be check.
+
+    StorePath       : /some/path                    // path semantics will be check.
+
+    <Internal>
+        Logfile         : /some/path/to/logfile     // optional path semantics will be check.
+        MaxLogFileSize  : 10 MB                     // size semantics will be check.
+    </Internal>
+    
+    ReconnectPeriod : 10 s                          // time period semantics will be check.
+</Server>
+
+<Plugins>
+    // plugins is option with multivalues.
+    plugins : a_plug b_plug
+    plugins : c_plug
+    plugins : d_plug
+    plugins : e_plug
+</Plugins>

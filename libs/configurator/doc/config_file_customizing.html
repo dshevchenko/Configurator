@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+	<head>
+  		<meta http-equiv="Content-Language" content="en-us">
+  		<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  		<link rel="stylesheet" type="text/css" href="own.css">
+  		<title>Boost.Configurator</title>
+	</head>
+	
+	<body>
+		<table cellpadding="2" width="100%">
+			<tr>
+				<td valign="top"><a href="http://www.boost.org">
+				<img style="border: 0pt none;" alt="Boost C++ Libraries" width="277" height="86" src="boost.png"></a></td>
+				<td align="center"><a href="http://www.boost.org">Home</a></td>
+				<td align="center"><a href="http://www.boost.org/doc/libs/">Libraries</a></td>
+				<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+				<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+				<td align="center"><a href="../../more/index.htm">More</a></td>
+			</tr>
+		</table>
+		
+		<hr/>
+  
+  		<div class="navigation">
+<a href="../index.html"><img src="src/images/prev.png" alt="Prev"></a>&nbsp;<a href="index.html"><img src="src/images/up.png" alt="Up"></a>&nbsp;<a href="index.html"><img src="src/images/home.png" alt="Home"></a>&nbsp;<a href="what_s_new.html"><img src="src/images/next.png" alt="Next"></a>
+</div>
+  
+		<h2>Configuration file customizing</h2>
+<p align="right"><strong><em>It is impossible to please everyone...</em></strong>
+<br/>
+Old wisdom</p>
+
+		<dl class="index">
+   			<dt><a href="#separator">Name-value separator for options</a></dt> 
+			<dt><a href="#comments">Comments</a></dt> 
+			<dt><a href="#section_names_edging">Section names edging</a></dt>
+  		</dl>
+  		
+  		<h3><a name="separator"></a>Name-value separator for options</h3>
+  		
+  		You can set custom separator for options. For example:
+<pre class="config">
+DatabaseName 		= my_db
+DatabaseHost 		= localhost
+DatabasePort 		= 0
+DatabaseUser 		= denis
+DatabasePassword 	= my_password
+</pre>
+This is simple INI-like file, so <strong>=</strong> symbol may seem redundant.
+<br/><br/>
+Let's change it:
+<pre class="cpp">
+int main( int argc, char* argv[] ) {	
+    try {
+        boost::cf::configurator conf;
+        conf.settings().set_name_value_separator( ' ' );
+        // ...
+    } catch ( const std::exception& exc ) {
+        std::cerr << exc.what() << std::endl;
+    } 
+
+    return 0;
+}
+</pre>
+Now we can write like this:
+<pre class="config">
+DatabaseName 		my_db
+DatabaseHost 		localhost
+DatabasePort 		0
+DatabaseUser 		denis
+DatabasePassword 	my_password
+</pre>
+<strong>Warning</strong>
+<br/><br/>
+If you want to use space symbol as name-value separator, you <strong>cannot</strong> use spaces in option's name or in option's value! And it is quite logical:
+<pre class="config">
+Database Name 		my_db
+//       ^
+//       |
+//       this is continue of name or begin of value?..
+</pre>
+
+  		<br/> 
+  		<h3><a name="comments"></a>Comments</h3>
+  		
+  		<h4>One-line</h4>
+  		
+  		You can set custom one-line comment sign. It may be useful for some cases, for example:
+<pre class="config">
+Host = http://some.address.com/
+//          ^
+//          |
+//          begin of default one-line comment...
+</pre>
+Hm... In this case default comment sign is not suitable.
+<br/><br/>
+Let's change it:
+<pre class="cpp">
+int main( int argc, char* argv[] ) {	
+    try {
+        boost::cf::configurator conf;
+        conf.settings().set_one_line_comment_sign( "#" );
+        // ...
+    } catch ( const std::exception& exc ) {
+        std::cerr << exc.what() << std::endl;
+    } 
+
+    return 0;
+}
+</pre>
+Now we can write:
+<pre class="config">
+Host = http://some.address.com/
+#           ^
+#           |
+#           now it's just two slashes...
+</pre>
+Of course, one-line comments may not necessarily begin with a single character. You may be accustomed to Emacs comments? No problems:
+<pre class="cpp">
+        // ...
+        boost::cf::configurator conf;
+        conf.settings().set_one_line_comment_sign( ";;" );
+        // ...
+</pre>
+So:
+<pre class="config">
+;; Emacs-like config...
+Host = http://some.address.com/
+</pre>
+
+		<h4>Multi-line</h4>
+		
+		Also you can set custom multi-line comment signs. What if you want to use HTML-like comments? Let's do it:
+<pre class="cpp">
+        // ...
+        boost::cf::configurator conf;
+        conf.settings().set_multi_line_comment_signs( "&lt;!--", "--&gt;" );
+        // ...
+</pre>
+Now we can write:
+<pre class="config">
+Host = http://some.address.com/
+&lt;!--
+This is HTML-like multi-line comment...
+--&gt;
+</pre>
+
+  		<br/>
+  		<h3><a name="section_names_edging"></a>Section names edging</h3>
+  		
+  		You can change default edging of section's names. Not everyone likes classic XML-format...
+<pre class="cpp">
+int main( int argc, char* argv[] ) {	
+    try {
+        boost::cf::configurator conf;
+        conf.settings().set_open_section_edging( "[[", "]]" );
+        conf.settings().set_close_section_edging( "[[-", "]]" );
+        // ...
+    } catch ( const std::exception& exc ) {
+        std::cerr << exc.what() << std::endl;
+    } 
+
+    return 0;
+}
+</pre>
+Now we can write:
+<pre class="config">
+[[Server]]
+	Host = 127.0.0.1
+	Port = 80
+[[-Server]]
+</pre>
+Changes may be more significant:
+<pre class="cpp">
+        // ...
+        boost::cf::configurator conf;
+        conf.settings().set_open_section_edging( "", "{" );
+        conf.settings().set_close_section_edging( "}", "" );
+        // ...
+</pre>
+In this case we can write:
+<pre class="config">
+Server {
+	Host = 127.0.0.1
+	Port = 80
+} Server
+</pre>
+
+	<br/>
+	
+	<div class="last_revised">Last revised 
+  	<!--webbot bot="Timestamp" s-type="EDITED" s-format="%d %B, %Y" startspan -->30
+  	December, 2010<!--webbot bot="Timestamp" endspan i-checksum="38514" --></div>
+	
+	<hr/>
+	
+	<div class="navigation">
+<a href="../index.html"><img src="src/images/prev.png" alt="Prev"></a>&nbsp;<a href="index.html"><img src="src/images/up.png" alt="Up"></a>&nbsp;<a href="index.html"><img src="src/images/home.png" alt="Home"></a>&nbsp;<a href="what_s_new.html"><img src="src/images/next.png" alt="Next"></a>
+</div>
+	</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+	<head>
+  		<meta http-equiv="Content-Language" content="en-us">
+  		<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  		<link rel="stylesheet" type="text/css" href="own.css">
+  		<title>Boost.Configurator</title>
+	</head>
+	
+	<body>
+		<table cellpadding="2" width="100%">
+			<tr>
+				<td valign="top"><a href="http://www.boost.org">
+				<img style="border: 0pt none;" alt="Boost C++ Libraries" width="277" height="86" src="boost.png"></a></td>
+				<td align="center"><a href="http://www.boost.org">Home</a></td>
+				<td align="center"><a href="http://www.boost.org/doc/libs/">Libraries</a></td>
+				<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+				<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+				<td align="center"><a href="../../more/index.htm">More</a></td>
+			</tr>
+		</table>
+		
+		<hr/>
+		
+		<div class="navigation"><a href="overview.html"><img src="src/images/next.png" alt="Next"></a></div>
+  
+		<h1>Boost.Configurator</h1>
+
+		<div class="index_copyright">
+			Copyright &copy; 2010 Denis Shevchenko
+			<br/><br/>
+  			Distributed under the Boost Software License, Version 1.0. 
+  			(See accompanying file <a href="../../../LICENSE_1_0.txt">LICENSE_1_0.txt</a> or
+  			copy at <a href="http://www.boost.org/LICENSE_1_0.txt">http://www.boost.org/LICENSE_1_0.txt</a>)
+  		</div>
+		
+		<br/>
+		
+		<div class="table_of_contents">
+      		<h3>Table of contents</h3>
+      			<div class="table_of_contents_main"><a href="#introduction">Introduction</a></div>
+				<div class="table_of_contents_main"><a href="overview.html">Overview</a></div>
+					<div class="table_of_contents_first">
+						<a href="overview.html#motivation">Motivation</a><br/>
+						<a href="overview.html#hello">Hello, world!</a><br/>
+					</div>
+
+				<div class="table_of_contents_main"><a href="requirements.html">Requirements</a></div>
+					<div class="table_of_contents_first">
+						<a href="requirements.html#necessary_libraries">Necessary Boost libraries</a><br/>
+						<a href="requirements.html#compiling">Compiling programs with Boost.Configurator</a><br/>
+					</div>
+
+				<div class="table_of_contents_main"><a href="config_file_format.html">Configuration file format</a></div>
+					<div class="table_of_contents_first">
+						<a href="config_file_format.html#option">Option</a><br/>
+						<a href="config_file_format.html#section">Section</a><br/>
+						<a href="config_file_format.html#comments">Comments</a><br/>
+					</div>
+
+				<div class="table_of_contents_main"><a href="common_usage.html">Common usage</a></div>
+					<div class="table_of_contents_first">
+						<a href="common_usage.html#concepts">Defining concepts</a><br/>
+						<a href="common_usage.html#options_adding">Options adding</a><br/>
+						<a href="common_usage.html#loading">Loading</a><br/>
+						<a href="common_usage.html#values_obtaining">Values obtaining</a><br/>
+						<a href="common_usage.html#concepts_vs_location">Concepts vs location</a><br/>
+					</div>
+
+				<div class="table_of_contents_main"><a href="advanced_usage.html">Advanced usage</a></div>
+					<div class="table_of_contents_first">
+						<a href="advanced_usage.html#default_values">Option's default value</a><br/>
+						<a href="advanced_usage.html#necessity">Option's necessity</a><br/>
+						<a href="advanced_usage.html#semantic">Semantic of option's value</a><br/>
+						<a href="advanced_usage.html#multi_values">Multi values for option</a><br/>
+						<a href="advanced_usage.html#case_sensitivity">Case sensitivity for names</a><br/>
+						<a href="advanced_usage.html#values_obtaining">Non-string values obtating</a><br/>
+					</div>
+
+				<div class="table_of_contents_main"><a href="config_file_customizing.html">Configuration file customizing</a></div>
+					<div class="table_of_contents_first">
+						<a href="config_file_customizing.html#separator">Name-value separator for options</a><br/>
+						<a href="config_file_customizing.html#comments">Comments</a><br/>
+						<a href="config_file_customizing.html#section_names_edging">Section names edging</a><br/>
+					</div>
+				
+				<div class="table_of_contents_main"><a href="additional_features.html">Additional features</a></div>
+					<div class="table_of_contents_first">
+						<a href="additional_features.html#not_only_files">Not only files</a><br/>
+						<a href="additional_features.html#settings_from_external_file">Settings from external file</a><br/>
+					</div>
+
+				<div class="table_of_contents_main"><a href="reference.html">Reference</a></div>
+				
+				<div class="table_of_contents_main"><a href="examples.html">Examples</a></div>
+
+				<div class="table_of_contents_main"><a href="appendix.html">Appendix</a></div>
+					<div class="table_of_contents_first">
+						<a href="appendix.html#error_messages">Error messages</a><br/>
+  					</div>
+  	
+				<div class="table_of_contents_main"><a href="acknowledgments.html">Acknowledgments</a></div>	
+		</div>
+
+	<h2><a name="introduction">Introduction</a></h2>
+
+	Boost.Configurator is flexible and easy-to-use library for work with configuration files. Uses <strong><a href="http://www.boost.org/doc/libs/release/libs/spirit/index.html">Boost.Spirit</a></strong> as parse engine.
+	<br/><br/>
+	
+	<div class="last_revised">Last revised 
+  	<!--webbot bot="Timestamp" s-type="EDITED" s-format="%d %B, %Y" startspan -->30
+  	December, 2010<!--webbot bot="Timestamp" endspan i-checksum="38514" --></div>
+  	
+  	<hr/>
+  	
+  	<div class="navigation"><a href="overview.html"><img src="src/images/next.png" alt="Next"></a></div>
+  	
+	</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+	<head>
+  		<meta http-equiv="Content-Language" content="en-us">
+  		<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  		<link rel="stylesheet" type="text/css" href="../own.css">
+  		<title>Boost.Configurator</title>
+	</head>
+	
+	<body>
+		<table cellpadding="2" width="100%">
+			<tr>
+				<td valign="top"><a href="http://www.boost.org">
+				<img style="border: 0pt none;" alt="Boost C++ Libraries" width="277" height="86" src="../boost.png"></a></td>
+				<td align="center"><a href="http://www.boost.org">Home</a></td>
+				<td align="center"><a href="http://www.boost.org/doc/libs/">Libraries</a></td>
+				<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+				<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+			</tr>
+		</table>
+		
+		<hr/>
+  
+  		<div class="navigation">
+<a href="../index.html"><img src="../src/images/prev.png" alt="Prev"></a>&nbsp;<a href="../index.html"><img src="../src/images/up.png" alt="Up"></a>&nbsp;<a href="../index.html"><img src="../src/images/home.png" alt="Home"></a>&nbsp;<a href="what_s_new.html"><img src="../src/images/next.png" alt="Next"></a>
+</div>
+		
+		<h3><code>configurator::load()</code></h3>
+		
+		<h4>Signature</h4>
+<pre class="cpp">
+void configurator::load( const std::string& path_to_configuration_file );
+</pre>
+		
+		<h4>Description</h4>
+		
+		This function load configuration file, with all checks and storing values of options.
+		
+		<br/>
+		<h4>Parameters</h4>
+		
+		<strong><code>path_to_configuration_file</code></strong> Path to configuration file in current filesystem.
+		
+		<br/>
+		<h4>Return</h4>
+		
+		None.
+		
+		<br/>
+		<h4>Exceptions</h4>
+		
+		<strong><code>std::runtime_error</code></strong>.
+		
+		<br/>
+		<h4>Example</h4>
+		
+<pre class="cpp">
+int main() {
+    boost::cf::configurator conf;
+    // ...
+    conf.load( "/some/path/to/configuration/file" );
+    // ...
+}
+</pre>
+		
+		<br/><br/>
+	
+	<div class="last_revised">Last revised 
+  	<!--webbot bot="Timestamp" s-type="EDITED" s-format="%d %B, %Y" startspan -->22
+  	December, 2010<!--webbot bot="Timestamp" endspan i-checksum="38514" --></div>
+	
+	<hr/>
+	
+	<div class="navigation">
+<a href="../index.html"><img src="../src/images/prev.png" alt="Prev"></a>&nbsp;<a href="index.html"><img src="../src/images/up.png" alt="Up"></a>&nbsp;<a href="index.html"><img src="../src/images/home.png" alt="Home"></a>&nbsp;<a href="what_s_new.html"><img src="../src/images/next.png" alt="Next"></a>
+</div>
+	</body>
+</html>

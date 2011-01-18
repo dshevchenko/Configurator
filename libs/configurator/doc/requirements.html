@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+	<head>
+  		<meta http-equiv="Content-Language" content="en-us">
+  		<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  		<link rel="stylesheet" type="text/css" href="own.css">
+  		<title>Configurator</title>
+	</head>
+	
+	<body>
+		<table cellpadding="2" width="100%">
+			<tr>
+				<td valign="top"><a href="http://www.boost.org">
+				<img style="border: 0pt none;" alt="Boost C++ Libraries" width="277" height="86" src="boost.png"></a></td>
+				<td align="center"><a href="http://www.boost.org">Home</a></td>
+				<td align="center"><a href="http://www.boost.org/doc/libs/">Libraries</a></td>
+				<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+				<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+				<td align="center"><a href="../../more/index.htm">More</a></td>
+			</tr>
+		</table>
+		
+		<hr/>
+  
+  		<div class="navigation">
+<a href="overview.html"><img src="src/images/prev.png" alt="Prev"></a>&nbsp;<a href="overview.html"><img src="src/images/up.png" alt="Up"></a>&nbsp;<a href="index.html"><img src="src/images/home.png" alt="Home"></a>&nbsp;<a href="config_file_format.html"><img src="src/images/next.png" alt="Next"></a>
+</div>
+  		
+		<h2>Requirements</h2>
+
+		<dl class="index">
+   			<dt><a href="#necessary_libraries">Necessary Boost libraries</a></dt>
+    		<dt><a href="#compiling">Compiling programs with Boost.Configurator</a></dt>
+  		</dl>
+
+		<h3><a name="necessary_libraries"></a>Necessary Boost libraries</h3>
+
+		Boost.Configurator uses only ISO C++ code and following Boost libraries:
+		
+		<ul>
+			<strong>
+			<li>Spirit</li>
+			<li>Fusion</li>
+			<li>Range</li>
+			<li>Filesystem</li>
+			<li>Pointer Container</li>
+			<li>Asio</li>
+			<li>System</li>
+			<li>Bind</li>
+			<li>Function</li>
+			<li>Foreach</li>
+			<li>Assign</li>
+			<li>Utility</li>
+			<li>Thread</li>
+			<li>String Algo</li>
+			<li>Member Function</li>
+			<li>Lexical Cast</li>
+			<li>Regex</li>
+			</strong>
+		</ul>
+		
+		Note that <strong>Filesystem</strong>, <strong>Thread</strong>, <strong>Regex</strong> and <strong>System</strong> (required for Asio) libraries are auto linking, so you must build them and link with your program. 
+<br/><br/>
+		But in accordance with the principle "you only pay for what you use", <strong>System</strong> and <strong>Regex</strong> libraries required only when you use semantics check, and <strong>Thread</strong> library required only when you use Singleton-variant of core class.
+		
+		<br/><br/>
+		<h3><a name="compiling"></a>Compiling programs with Boost.Configurator</h3>
+		
+		Simplest example of compiling program with Boost.Configurator (in Linux):
+		
+<pre class="terminal">
+# g++ -o my_test main.cpp -lboost_filesystem
+</pre>
+
+		If you want use Singleton-variant of core class, you must define <strong><code>WITH_SINGLETON</code></strong> flag and link Boost.Thread library:
+
+<pre class="terminal">
+# g++ -o my_test main.cpp -DWITH_SINGLETON -lboost_filesystem -lboost_thread
+</pre>
+
+		If you want use semantics check, you must define <strong><code>WITH_SEMANTIC_CHECK</code></strong> flag and link Boost.System and Boost.Regex libraries:
+
+<pre class="terminal">
+# g++ -o my_test main.cpp -DWITH_SEMANTIC_CHECK -lboost_filesystem -lboost_system -lboost_regex
+</pre>
+		
+	Note that in stable release Boost.Regex will <strong>not</strong> be used, Boost.Spirit will replace it.	
+	
+	<br/><br/>
+	
+	<div class="last_revised">Last revised 
+  	<!--webbot bot="Timestamp" s-type="EDITED" s-format="%d %B, %Y" startspan -->30
+  	December, 2010<!--webbot bot="Timestamp" endspan i-checksum="38514" --></div>
+  	
+  	<hr/>
+	
+	<div class="navigation">
+<a href="overview.html"><img src="src/images/prev.png" alt="Prev"></a>&nbsp;<a href="overview.html"><img src="src/images/up.png" alt="Up"></a>&nbsp;<a href="index.html"><img src="src/images/home.png" alt="Home"></a>&nbsp;<a href="config_file_format.html"><img src="src/images/next.png" alt="Next"></a>
+</div>
+	</body>
+</html>
