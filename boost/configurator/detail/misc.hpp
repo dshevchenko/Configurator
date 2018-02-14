@@ -51,7 +51,7 @@ inline void pure_check_path_existence( const std::string& _path ) {
     
     const std::string full_path_name = path.string();
     const std::string path_name      = path.parent_path().string();
-    const std::string file_name      = path.filename();
+    const std::string file_name      = path.filename().string();
 
     if ( boost::filesystem::exists( path_name ) ) {
         if ( !boost::filesystem::exists( full_path_name ) ) {
